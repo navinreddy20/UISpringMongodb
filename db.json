@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "profile": "Frontend Developer",
+      "experience": 1,
+      "description": "Front-end web development is the development of the graphical user interface of a website, through the use of HTML, CSS, and JavaScript",
+      "skill": [
+        "Javascript",
+        "React"
+      ]
+    },
+    {
+      "profile": "Data Scientist",
+      "experience": "1",
+      "skill": [
+        "Python"
+      ],
+      "description": "\nTo work as a data scientist, you must have an undergraduate or a postgraduate degree in a relevant discipline, such as Business information systems, Computer science, Economics, Information Management, Mathematics and Statistics.",
+      "id": 2
+    },
+    {
+      "profile": "Blockchain Developer",
+      "experience": "1",
+      "skill": [
+        "Rust",
+        "Javascript"
+      ],
+      "description": "\nBlockchain software developers build applications onto existing blockchain platforms. They handle front-end and back-end development, design, and maintenance.",
+      "id": 3
+    }
+  ]
+}
