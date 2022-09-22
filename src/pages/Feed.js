@@ -22,12 +22,20 @@ const Feed = () => {
       const response = await axios.get(`http://localhost:3000/posts/${query}`);
       setPost(response.data);
     };
-    if (query.length === 0 || query.length > 2) fetchPosts();
+    const fetchInitialPosts = async () => {
+        const response = await axios.get(`http://localhost:3000/posts`);
+        setPost(response.data);
+    }
+    if (query.length === 0) fetchInitialPosts();
+    if (query.length > 2) fetchPosts();
   }, [query]);
 
   return (
     <Grid container spacing={2} sx={{ margin: "2%" }}>
       <Grid item xs={12} sx={12} md={12} lg={12}>
+      <Button sx={{ margin: "1% 2%" }} variant="outlined">
+            <Link to="/">Home</Link>
+          </Button>
         <Box>
           <TextField
             InputProps={{
@@ -42,9 +50,6 @@ const Feed = () => {
             fullWidth
             onChange={(e) => setQuery(e.target.value)}
           />
-          <Button sx={{ margin: "auto 2%" }} variant="outlined">
-            <Link to="/">Home</Link>
-          </Button>
         </Box>
       </Grid>
       {post &&

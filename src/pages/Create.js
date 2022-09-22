@@ -7,7 +7,7 @@ import {
   Box,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-const initial = { profile: "", experience: 0, skill: [], description:"" };
+const initial = { profile: "", noOfExperience: 0, technologies: [], description:"" };
 
 const Create = () => {
     const skillSet = [
@@ -49,10 +49,10 @@ const Create = () => {
       navigate('/employee/feed');
   };
 
-  const { profile, experience, description } = form;
+  const { profile, noOfExperience, description } = form;
 
   const handleChange = (e) => {
-    setForm({...form , skill : [...form.skill, e.target.value]});
+    setForm({...form , technologies : [...form.technologies, e.target.value]});
   }
 
   return (
@@ -82,10 +82,10 @@ const Create = () => {
             type="number"
             sx={{ width: "50%", margin: "2% auto" }}
             required
-            onChange={(e) => setForm({ ...form, experience: e.target.value })}
+            onChange={(e) => setForm({ ...form, noOfExperience: e.target.value })}
             label="Years of Experience"
             variant="outlined"
-            value={experience}
+            value={noOfExperience}
           />
            <TextField
             type="string"

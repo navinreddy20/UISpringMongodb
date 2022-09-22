@@ -24,6 +24,10 @@
   color: white;
 }
 
+.ul { 
+  list-style: none;
+}
+
 .App-link {
   color: #61dafb;
 }
