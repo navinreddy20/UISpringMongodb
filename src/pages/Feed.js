@@ -19,17 +19,18 @@ const Feed = () => {
   //
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await axios.get(`http://localhost:3000/posts/${query}`);
+      const response = await axios.get(`http://localhost:8080/posts/${query}`);
       setPost(response.data);
     };
     const fetchInitialPosts = async () => {
-        const response = await axios.get(`http://localhost:3000/posts`);
+        const response = await axios.get(`http://localhost:8080/allPosts`);
+        console.log(response);
         setPost(response.data);
     }
     if (query.length === 0) fetchInitialPosts();
     if (query.length > 2) fetchPosts();
   }, [query]);
-
+console.log(post);
   return (
     <Grid container spacing={2} sx={{ margin: "2%" }}>
       <Grid item xs={12} sx={12} md={12} lg={12}>
@@ -64,16 +65,16 @@ const Feed = () => {
              {p.profile}
                 </Typography>
                 <Typography sx={{ color: "#585858", marginTop:"2%" }} variant="body" >
-                  Description: {p.description}
+                  Description: {p.desc}
                 </Typography>
                 <br />
                 <br />
                 <Typography variant="h6">
-                  Years of Experience: {p.experience} years
+                  Years of Experience: {p.exp} years
                 </Typography>
 
                 <Typography gutterBottom  variant="body">Skills : </Typography>
-                {p.skill.map((s, i) => {
+                {p.techs.map((s, i) => {
                   return (
                     <Typography variant="body" gutterBottom key={i}>
                       {s} .

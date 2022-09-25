@@ -3,9 +3,9 @@
     {
       "id": 1,
       "profile": "Frontend Developer",
-      "experience": 1,
-      "description": "Front-end web development is the development of the graphical user interface of a website, through the use of HTML, CSS, and JavaScript",
-      "skill": [
+      "exp": 1,
+      "desc": "Front-end web development is the development of the graphical user interface of a website, through the use of HTML, CSS, and JavaScript",
+      "techs": [
         "Javascript",
         "React"
       ]

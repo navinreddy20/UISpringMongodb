@@ -7,7 +7,7 @@ import {
   Box,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-const initial = { profile: "", noOfExperience: 0, technologies: [], description:"" };
+const initial = { profile: "", exp: 0, techs: [], desc:"" };
 
 const Create = () => {
     const skillSet = [
@@ -32,7 +32,7 @@ const Create = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/posts", {
+    fetch("http://localhost:8080/post", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -49,10 +49,10 @@ const Create = () => {
       navigate('/employee/feed');
   };
 
-  const { profile, noOfExperience, description } = form;
+  const { profile, exp, desc } = form;
 
   const handleChange = (e) => {
-    setForm({...form , technologies : [...form.technologies, e.target.value]});
+    setForm({...form , techs : [...form.techs, e.target.value]});
   }
 
   return (
@@ -82,10 +82,10 @@ const Create = () => {
             type="number"
             sx={{ width: "50%", margin: "2% auto" }}
             required
-            onChange={(e) => setForm({ ...form, noOfExperience: e.target.value })}
+            onChange={(e) => setForm({ ...form, exp: e.target.value })}
             label="Years of Experience"
             variant="outlined"
-            value={noOfExperience}
+            value={exp}
           />
            <TextField
             type="string"
@@ -93,10 +93,10 @@ const Create = () => {
             required
             multiline
             rows={4}
-            onChange={(e) => setForm({ ...form, description: e.target.value })}
-            label="Job-description"
+            onChange={(e) => setForm({ ...form, desc: e.target.value })}
+            label="Job-desc"
             variant="outlined"
-            value={description}
+            value={desc}
           />
           <Box sx={{ margin:"1% auto"}}>
           <h3>Please mention required skills</h3>
